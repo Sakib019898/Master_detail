@@ -1,0 +1,62 @@
+<mvc:View controllerName="masterdetail.masterdetail.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" >
+    <customHeader>
+     <OverflowToolbar>
+      <content>
+      <ToolbarSpacer/>
+        <Title text="Order Summary Master-Detail"/>
+      <ToolbarSpacer/>
+      </content>
+     </OverflowToolbar>
+    </customHeader>
+    <content>
+     <SplitContainer>
+     <detailPages>
+<Page id="orderDetail" title="Order Details">
+<Table id="orderTable" items="{/Order_Details}">
+<columns> 
+<Column id="orderId">
+<Text id="orderTxtId" text="Order ID"></Text>
+</Column> 
+<Column id="prodId">
+<Text id="prodTxtId" text="Product ID"></Text>
+</Column>
+<Column id="priceId">
+<Text id="priceTxtId" text="UnitPrice"></Text>
+</Column>
+<Column id="quanId">
+<Text id="quanTxtId" text="Quantity"></Text>
+</Column>
+<Column id="discId">
+<Text id="discTxtId" text="Discount"></Text>
+</Column>
+</columns>
+<items>
+<ColumnListItem>
+ <cells>
+  <Text text="{OrderID}"/>
+  <Text text="{ProductID}"/>
+  <Text text="{UnitPrice}"/>
+  <Text text="{Quantity}"/>
+  <Text text="{Discount}"/>
+ </cells>
+</ColumnListItem>
+</items>
+</Table>
+</Page>
+     </detailPages>
+     <masterPages>
+       <Page id="master" title="Order Master">
+         <List id="OrderList" items="{/Orders}" itemPress="onListPress">
+         <items>
+          <StandardListItem title="{OrderID}" type="Navigation"></StandardListItem>
+         </items>
+         </List> 
+       </Page>   
+     </masterPages>
+     </SplitContainer>
+     </content>
+    </Page>
+</mvc:View>
